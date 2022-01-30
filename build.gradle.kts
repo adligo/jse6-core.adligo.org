@@ -126,19 +126,6 @@ fun dependsOnTests4j(dhs: DependencyHandlerScope) {
   dhs.implementation(project("tests4j.adligo.org"))
 }
 
-fun isModule(dep: ProjectDependency): Boolean {
-    val path = dep.getPath()
-    val len = path.length
-    return isModule(path.substring(1, len))
-}
-
-fun isModule(projectName: String): Boolean {
-  when(projectName) {
-    "i_ctx.adligo.org" -> return true
-  }
-  return false
-}
-
 fun javaSrc(ssc: SourceSetContainer) {
   ssc.main { java { srcDirs("src") } }
 }
@@ -152,11 +139,12 @@ fun onEclipse(eclipse: EclipseModel) {
 }
 
 fun onEclipseClasspathMerged(classpath: Classpath) {
-  classpath.getEntries().forEach { 
+  classpath
+  .getEntries().forEach { 
     if (it is ProjectDependency) {
-      if (isModule(it)) {
-        it.entryAttributes["module"] = "true"
-      }
+      //if (isModule(it)) {
+        //it.entryAttributes["module"] = "true"
+      //}
     }
   }
 }
@@ -356,7 +344,9 @@ I have found that the JAVA_HOME environment variable that is set when your run t
 is the one that is included in the Eclipse BuildPath
 */
 tasks.register<GradleBuild>("ecp") {
-    tasks = listOf("cleanEclipseClasspath", "eclipseClasspath")
+  println("Note if your really trying to use this on jdk6 you will need to also")
+  println("jdk8 and then switch the toolchain to jdk 8 for this task to actually work")
+  tasks = listOf("cleanEclipseClasspath", "eclipseClasspath")
 }
 
 

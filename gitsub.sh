@@ -46,41 +46,47 @@ function clone() {
   if [[ "$async" == "y" ]]; then
     clone_async $1 &
   else 
-    git clone $1 
+    git clone git@github.com:adligo/$1.git 
   fi
 }
 
 function clone_async() {
   #echo "cloning $1 async"
-  git clone $1
+  git clone git@github.com:adligo/$1.git
   #echo "finished clone of $1"
+  if [[ -z "$2" ]]; then
+    echo "no branch for $1"
+  else
+    cd $1
+    git checkout $2
+  fi
 }
-clone git@github.com:adligo/artifactory_deploy.sh.adligo.org.git
+clone artifactory_deploy.sh.adligo.org jse16
 
-clone git@github.com:adligo/ctx.adligo.org.git
-clone git@github.com:adligo/ctx_tests.adligo.org.git
+clone ctx.adligo.org jse6
+clone ctx_tests.adligo.org jse6
 
-clone git@github.com:adligo/eclipse.adligo.org.git
+clone eclipse.adligo.org jse6
 
-clone git@github.com:adligo/gradle_kt_examples.adligo.org.git
-clone git@github.com:adligo/gwt_ctx_example.adligo.org.git
+clone gradle_kt_examples.adligo.org jse6
+clone gwt_ctx_example.adligo.org jse6
 
-clone git@github.com:adligo/i_ctx.adligo.org.git
-clone git@github.com:adligo/i_ctx4jse.adligo.org.git
-clone git@github.com:adligo/i_pipe.adligo.org.git
-clone git@github.com:adligo/i_tests4j.adligo.org.git
-clone git@github.com:adligo/i_threads.adligo.org.git
-clone git@github.com:adligo/i_threads4jse.adligo.org.git
+clone i_ctx.adligo.org jse6
+clone i_ctx4jse.adligo.org jse6
+clone i_pipe.adligo.org jse6
+clone i_tests4j.adligo.org jse6
+clone i_threads.adligo.org jse6
+clone i_threads4jse.adligo.org jse6
 
-clone git@github.com:adligo/mockito_ext.adligo.org.git
+clone mockito_ext.adligo.org jse6
 
-clone git@github.com:adligo/pipe.adligo.org.git
-clone git@github.com:adligo/pipe_tests.adligo.org.git
+clone pipe.adligo.org jse6
+clone pipe_tests.adligo.org jse6
 
-clone git@github.com:adligo/tests4j.adligo.org.git
-clone git@github.com:adligo/tests4j_4mockito.adligo.org.git
-clone git@github.com:adligo/tests4j4jj.adligo.org.git
-clone git@github.com:adligo/tests4j4jj_tests.adligo.org.git
-clone git@github.com:adligo/threads.adligo.org.git
+clone tests4j.adligo.org jse6
+clone tests4j_4mockito.adligo.org jse6
+clone tests4j4jj.adligo.org jse6
+clone tests4j4jj_tests.adligo.org jse6
+clone threads.adligo.org jse6
 
 wait
