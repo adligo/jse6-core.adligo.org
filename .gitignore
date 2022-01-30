@@ -1,7 +1,8 @@
 # Compiled class file
 *.class
+depot
 
-# Log file
+#Log file
 *.log
 
 # BlueJ files
@@ -17,7 +18,47 @@
 *.ear
 *.zip
 *.tar.gz
+
 *.rar
+
+# Sub Projects
+artifactory_deploy.sh.adligo.org
+
+ctx.adligo.org
+ctx_tests.adligo.org
+ctx4jse.adligo.org
+ctx4jse_tests.adligo.org
+
+eclipse.adligo.org
+
+gradle_kt_examples.adligo.org
+gwt_ctx_example.adligo.org
+
+i_ctx.adligo.org
+i_ctx4jse.adligo.org
+i_pipe.adligo.org
+i_tests4j.adligo.org
+i_threads.adligo.org
+i_threads4jse.adligo.org
+
+mockito_ext.adligo.org
+
+pipe.adligo.org
+pipe_tests.adligo.org
+
+tests4j.adligo.org
+tests4j_4mockito.adligo.org
+tests4j_tests.adligo.org
+tests4j4jj.adligo.org
+tests4j4jj_tests.adligo.org
+threads.adligo.org
+
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/bin/
+bin
+/.classpath
+.gradle
+/.gradle/
+
